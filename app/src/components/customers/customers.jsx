@@ -1,14 +1,12 @@
 import CustomersTable from "./customersTable";
 import React, { Component } from "react";
 import _ from "lodash";
-import Pagination from "./common/pagination";
-import { getCustomers, deleteCustomer } from "../services/customerService";
-//mport { getPackages } from "../services/packageService";
-import { paginate } from "../utils/paginate";
-//import ListGroup from "./common/listGroup";
+import Pagination from "../common/pagination";
+import { getCustomers, deleteCustomer,saveCustomer } from "../../services/customerService";
+import { paginate } from "../../utils/paginate";
 import { Link } from "react-router-dom";
+import SearchBox from "../common/searchBox";
 
-import SearchBox from "./common/searchBox";
 class Customers extends Component {
   state = {
     customers: [],
@@ -39,12 +37,18 @@ class Customers extends Component {
       this.setState({ customers: origialCustomers });
     }
   };
-  handleLike = customer => {
+  handleLike = async customer => {
     const customers = [...this.state.customers];
     const index = customers.indexOf(customer);
     customers[index] = { ...customers[index] };
     customers[index].isActive = !customers[index].isActive;
     this.setState({ customers });
+    try {
+      await saveCustomer(customers[index]);
+    } catch (ex) { 
+      alert("Error while changing status")
+    }
+    
   };
   handlePageChange = page => {
     this.setState({ currentPage: page });

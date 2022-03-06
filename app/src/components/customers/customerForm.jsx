@@ -1,8 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
-import Form1 from "./common/form";
-import { getCustomer, saveCustomer } from "../services/customerService";
-//import { getPackages } from "../services/packageService";
+import Form1 from "../common/form";
+import { getCustomer, saveCustomer } from "../../services/customerService";
 import { Form } from "reactstrap";
 /*
 Customer Table
@@ -84,8 +83,12 @@ class CustomerForm extends Form1 {
     };
   }
   doSubmit = async () => {
+    try{
     await saveCustomer(this.state.data);
-    this.props.history.push("/customers");
+      this.props.history.push("/customers");
+    } catch (ex) {
+      alert(ex)
+    }
   };
   render() {
     return (
@@ -95,7 +98,7 @@ class CustomerForm extends Form1 {
           {this.renderInput("username", "Username")}
           {this.renderInput("password", "Password", "password")}
           {this.renderInput("firstName", "First Name")}
-          {this.renderInput("lastName", "last Name")}          
+          {this.renderInput("lastName", "Last Name")}          
           {this.renderInput("mobile", "Mobile No")}
           {this.renderInput("email", "Email Id")}
           {this.renderInput("isActive", "Status")}

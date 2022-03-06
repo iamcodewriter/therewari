@@ -1,6 +1,6 @@
 import auth from "../services/authService";
 import { Button } from "reactstrap";
-import Like from "./common/like";
+//import Like from "./common/like";
 import Table from "./common/table";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";

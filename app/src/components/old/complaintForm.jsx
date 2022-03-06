@@ -1,9 +1,9 @@
 import React from "react";
 import Joi from "joi-browser";
-import Form1 from "./common/form1";
-import { getComplaint, saveComplaint } from "../services/complaintService";
-import { getCustomers } from "../services/customerService";
-import { getUsers } from "../services/userService";
+import Form1 from "../common/form1";
+import { getComplaint, saveComplaint } from "../../services/complaintService";
+import { getCustomers } from "../../services/customerService";
+import { getUsers } from "../../services/userService";
 import { Form } from "reactstrap";
 class ComplaintForm extends Form1 {
   state = {

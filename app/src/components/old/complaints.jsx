@@ -1,14 +1,14 @@
-import ComplaintsTable from "./complaintsTable";
+import ComplaintsTable from "../complaintsTable";
 import React, { Component } from "react";
 import _ from "lodash";
-import Pagination from "./common/pagination";
-import { getComplaints, deleteComplaint } from "../services/complaintService";
-import { getCustomers } from "../services/customerService";
-import { getUsers } from "../services/userService";
-import { paginate } from "../utils/paginate";
+import Pagination from "../common/pagination";
+import { getComplaints, deleteComplaint } from "../../services/complaintService";
+import { getCustomers } from "../../services/customerService";
+//import { getUsers } from "../services/userService";
+import { paginate } from "../../utils/paginate";
 //import ListGroup from "./common/listGroup";
 import { Link } from "react-router-dom";
-import SearchBox from "./common/searchBox";
+import SearchBox from "../common/searchBox";
 class Complaints extends Component {
   state = {
     complaints: [],

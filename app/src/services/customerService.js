@@ -14,6 +14,7 @@ export function saveCustomer(customer) {
   if (customer._id) {
     const body = { ...customer };
     delete body._id;
+    delete body.__v;
     return http.put(apiEndpoint + "/" + customer._id, body);
   }
   return http.post(apiEndpoint, customer);

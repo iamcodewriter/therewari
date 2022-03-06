@@ -40,7 +40,7 @@ class Form1 extends Component {
   };
   renderButton(label) {
     return (
-      <Button color="primary" disabled={this.validate()}>
+      <Button color="primary" >
         {label}
       </Button>
     );

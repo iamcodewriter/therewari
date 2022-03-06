@@ -1,8 +1,6 @@
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
-const asyncMiddleware = require("../middleware/async");
 const { Customer, validate } = require("../models/customer");
-const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
 /*
@@ -26,7 +24,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) {
-    res.status(400).send(error.message);
+    res.status(400).send(error);
     return;
   }
   const timestamp = Date.now();
@@ -35,7 +33,7 @@ router.post("/", async (req, res) => {
     username: req.body.username,
     password: req.body.password,
     firstName: req.body.firstName,
-    lastName: req.body.firstName,
+    lastName: req.body.lastName,
     mobile: req.body.mobile,
     email: req.body.email,
     isActive: req.body.isActive,

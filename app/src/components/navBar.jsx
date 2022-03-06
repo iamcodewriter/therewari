@@ -45,25 +45,71 @@ export default class Example extends React.Component {
             <Nav className="ml-auto" navbar>
               {user && (
                 <React.Fragment>
-                  <NavItem>
-                    <NavLink
+                <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Customers
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem
                       onClick={this.handleClick}
                       href="/customers"
-                      active
                     >
-                      Customers
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="/packages" active>
-                      Plans
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="/complaints" active>
-                      Complaints
-                    </NavLink>
-                  </NavItem>
+                    Customers
+                      </DropdownItem>
+                      
+                  <DropdownItem
+                      onClick={this.handleClick}
+                      href="/addresses"
+                    >
+                        Addresses
+                      </DropdownItem>
+                    <DropdownItem
+                      onClick={this.handleClick}
+                      href="/payments"
+                    >
+                        Payments
+                      </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>Reset</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+                 <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Products
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem
+                      onClick={this.handleClick}
+                      href="/products"
+                    >
+                    Products
+                      </DropdownItem>
+                      
+                  <DropdownItem
+                      onClick={this.handleClick}
+                      href="/categories"
+                    >
+                        Categories
+                      </DropdownItem>
+                    <DropdownItem
+                      onClick={this.handleClick}
+                      href="/discounts"
+                    >
+                        Discounts
+                      </DropdownItem>
+                      <DropdownItem
+                      onClick={this.handleClick}
+                      href="/inventories"
+                    >
+                        Inventories
+                      </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>Reset</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+
+                  
                 </React.Fragment>
               )}
               {user && user.isAdmin && (
@@ -98,17 +144,7 @@ export default class Example extends React.Component {
                   </NavItem>
                 </React.Fragment>
               )}
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>Option 1</DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+
             </Nav>
           </Collapse>
         </Navbar>

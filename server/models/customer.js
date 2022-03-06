@@ -85,8 +85,8 @@ function validateCustomer(customer) {
       .required()
       .max(100),
     isActive: Joi.boolean(),
-    createAt:  Joi.date(),
-    modifiedAt:  Joi.date()
+    createAt:  Joi.string(),
+    modifiedAt:  Joi.string()
   };
 
   return Joi.validate(customer, schema);

@@ -1,10 +1,23 @@
-import auth from "../services/authService";
+import auth from "../../services/authService";
 import { Button } from "reactstrap";
-import Like from "./common/status";
-import Table from "./common/table";
+import Like from "../common/status";
+import Table from "../common/table";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 class CustomersTable extends Component {
+/*
+Customer Table
+id
+username
+password
+firstName
+lastName
+mobile
+email
+isActive
+createAt
+modifiedAt
+*/  
   columns = [
     {
       path: "username",
@@ -13,8 +26,8 @@ class CustomersTable extends Component {
         <Link to={`/customers/${customer._id}`}>{customer.username}</Link>
       )
     },
-    { path: "name", label: "Name" },
-    { path: "package.name", label: "Package" },
+    { path: "firstName", label: "FirstName" },
+    { path: "lastName", label: "LastName" },
     {
       path: "isActive",
       label: "Status",
@@ -25,7 +38,7 @@ class CustomersTable extends Component {
         />
       )
     },
-    { path: "streetAddress", label: "Address" },
+    //{ path: "streetAddress", label: "Address" },
     { path: "mobile", label: "Mobile" }
   ];
 
